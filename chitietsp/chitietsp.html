@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="Cart.css"> -->
+    <title>Document</title>
+    <script src="javaScript.js"></script>
+</head>
+<body>
+
+    <!-- Top hearder -->
+    <div class="thanhxanh" >
+        <div  style="width: 100%;">
+                <div class="trai"  >
+                    <p >Offer Zone Top Deals & Discounts
+                        <!-- <i class="fas fa-shopping-cart "></i> -->
+                    </p>
+                </div>
+                <div class="phai"  >
+                    <!-- header lists -->
+                    <ul>
+                        <li style="width: 15%; padding-left: 20%;">
+                            <a href="#small-dialog1" onclick="document.getElementById('small-dialog1').style.display = 'block'"><i class="fas fa-map-marker "></i>Vị trí </a>
+                        </li>
+                        <li  style="width: 15%;">
+                            <a href="#"><i class="fas fa-truck"></i>Vận chuyển</a>
+                        </li>
+                        <li  style="width: 15%;">
+                            <a href="#"><i class="fas fa-phone "></i> 001 234 5678</a>
+                        </li>
+                        <li  style="width: 15%;">
+                            <a href="../Login/Login.html" ><i class="fas fa-sign-in-alt"></i> Đăng nhập </a>
+                        </li>
+                        <li  style="width: 15%;">
+                            <a href="../Signin/Signin.html"><i class="fas fa-sign-out-alt "></i>Đăng kí </a>
+                        </li>
+                    </ul> 
+                    <!-- //header lists -->
+            </div>
+       </div>
+   </div> 
+</div>
+<!-- The Modal -->
+
+
+    <!-- Button trigger modal(select-location) -->
+    
+    <div id="small-dialog1" class="mfp-hide" style="display: none;">
+        <span id = "btnClose" onclick="document.getElementById('small-dialog1').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <div class="select-city">
+            
+            <h3>
+                <i class="fas fa-map-marker" ></i> Chọn vị trí của bạn</h3>
+            <select class="list_of_cities" >
+                <optgroup >
+                    <option selected style="display:none;color:#eee;">Thành phố</option>
+                    <option>Hà Nội</option>
+                    <option>Thanh Hóa</option>
+                    <option>Hồ Chí Minh</option>
+                    <option>Đà Nẵng</option>
+                    <option>Cần thơ</option>
+                    <option>Thái Nguyên</option>
+                    <option>Kiên Giang</option>
+                    <option>Hậu giang</option>
+                    <option>Huế</option>
+                    <option>Nghệ An</option>
+                    <option>Quảng Nam</option>
+                </optgroup>
+                </select>
+            <div class="clearfix"></div>
+        </div>
+    </div> 
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Giỏ Hàng</h5>
+                <span class="close" id = "closeCart">&times;</span>
+            </div>
+            
+            <div class="modal-body">
+                <div class="cart-row">
+                    <span class="cart-item cart-header cart-column">Sản Phẩm</span>
+                    <span class="cart-price cart-header cart-column">Giá</span>
+                    <span class="cart-quantity cart-header cart-column">Số Lượng</span>
+                </div>
+                <div class="cart-items">
+                    <!-- <div class="cart-row">
+                    <div class="cart-item cart-column">
+                        <img class="cart-item-image" src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/sualai.jpg?v=1573720306000" width="100" height="100">
+                        <span class="cart-item-title">Mũi Hàn 500</span>
+                    </div>
+                    <span class="cart-price cart-column">25000</span>
+                    <div class="cart-quantity cart-column">
+                        <input class="cart-quantity-input" type="number" value="1">
+                        <button class="btn btn-danger" type="button" onclick="deleteCart()">Xóa</button>
+                    </div>
+                </div> -->
+                </div>
+                <div class="cart-total" style="float: left;">
+                    <strong class="cart-total-title">Tổng Cộng:</strong>
+                    <span class="cart-total-price">0VNĐ</span>
+                </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary close-footer" id= "closeCartbtn">Đóng</button>
+                <button type="button" class="btn btn-primary order" id = "Payment" style="background-color:#0275d8;   border-color: #0275d8;">Thanh Toán</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- header-bottom-->
+    <div class="header-bot" style="width: 100%;"> 
+                <!-- logo -->
+                <div class="logotrai">
+                    <h1 class="text-center">
+                        <a href="../header.html" class="font-weight-bold font-italic " style="width: 10%;">
+                            <img src="images/logo2.png" alt=" " id = "logoImg" > 
+                        </a>
+                        <a href="../header.html" class="font-weight-bold font-italic" style="width: 18%;">
+                            <p id = "logoBig">Electro Store </p> 
+                        </a>
+                    </h1>
+                </div>
+                <!-- //logo -->
+                <!-- search -->
+                 <div class=" timkiem">
+                    <form class="form-inline" action="#" method="post">
+                        <input class="form-control" id = "boxSearch" type="search" placeholder="Bạn tìm gì.." aria-label="Search" required>
+                        <button class="btn" type="submit" style="width: 15%;">Tìm kiếm</button>
+                    </form>
+                </div>  
+
+                <div id = "cartLogo" >
+                    <button id="cart" onclick="openCart()">
+                        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                        <img src="images/cart.png" id = "imgCart" alt = "Hinh gio hang">                        
+                    </button>
+                    
+                    
+                </div>
+                
+            </div>
+
+    <div class="navbar-inner">
+                <div class="danhmuc">
+                    <form action="#" method="post">
+                        
+                        <select id="agileinfo-nav_search" name="agileinfo_search" class="border" required="">
+                            <option value="">Xem tất cả</option> 
+                             <option value="Televisions">Tivi</option>
+                            <option value="Headphones">Điện thoại</option>
+                            <option value="Computers">Laptop</option>
+                            <option value="Appliances">Phụ kiện</option>
+                            <option value="iPad & Tablets">iPad & Tablets</option> 
+                     </select>
+                 </form>
+            </div>
+            <!-- kết thúc danh mục -->
+                 <div class="nav-menu" >
+                    <ul id = navMenu>
+                        <li class="nav-itemDropdown">
+                            <a class="nav-link" href="index.html">Trang chủ
+                                <!-- <span class="sr-only">(current)</span> -->
+                            </a>
+                        </li>
+                        <li class="nav-itemDropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Điện thoại
+                            </a>
+                            <div class="dropdown-menu">
+                                <ul class="multi-column-dropdown">
+                                    <li >
+                                        <a href="product.html">Tất cả điện thoại</a>
+                                    </li>
+                                    <li >
+                                        <a href="product.html">Iphone</a>
+                                    </li>
+                                    <li >
+                                        <a href="product.html">Sam sung</a>
+                                    </li>
+                                    <li >
+                                        <a href="product.html">Xaomi</a>
+                                    </li>
+                                    <li >
+                                        <a href="product.html">Oppo</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html">Vivo</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html">Smart Home</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-itemDropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Laptop
+                            </a>
+                            <div class="dropdown-menu">
+                                            <ul class="multi-column-dropdown">
+                                                <li>
+                                                    <a href="product2.html">Asus</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product2.html">Aces</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product2.html">Dell</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product2.html">Lenovo</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product2.html">Game Zone</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product2.html">Software</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                        </li> 
+                        <li class="nav-itemDropdown ">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Phụ kiện
+                            </a>
+                            <div class="dropdown-menu">
+                                            <ul class="multi-column-dropdown">
+                                                <li>
+                                                    <a href="product3.html">Tai nghe</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product3.html">Pin dự phòng</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product3.html">Chuột</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product3.html">Bàn phím</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product3.html">Cameras</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product3.html">Loa</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product3.html">Wifi</a>
+                                                </li>
+                                            </ul>
+                              </div>
+                        <li class="nav-itemDropdown">
+                            <a class="nav-link" href="checkout.html">Giỏ hàng</a>
+                        </li>
+                
+                        <li class="nav-itemDropdown">
+                            <a class="nav-link" href="contact.html">Liên lạc</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    <!-- /Top hearder -->
+    <!--Banner-->
+    <div class="banner">
+
+	</div>
+    <!--/Banner-->
+    <!--link-->
+    <div class="services-breadcrumb">
+		<div class="agile_inner_breadcrumb">
+			<div class="cont">
+				<ul class="w3">
+					<li>
+						<a href="../header.html">Trang chủ</a>
+						<i>|</i>
+					</li>
+					<li>Thông tin sản phẩm</li>
+				</ul>
+			</div>
+		</div>
+    </div>
+    <!--/link-->
+    <!--Thong tin sp-->
+    <div class="container">
+        <div class="row">
+            <div class="product">
+                <div class="product-small-img">
+                    <img id = "image1"src="images/si1.jpg" alt="" onclick="MyFunction(this)">
+                    <img src="images/si2.jpg" alt="" onclick="MyFunction(this)">
+                    <img src="images/si3.jpg" alt="" onclick="MyFunction(this)">
+                </div>
+                <div class="img-container">
+                    <img id="imgBox" src="images/si1.jpg" alt="">
+                </div>
+            </div>
+            <div class="thongtin">
+                <h3 class="tensp" id = "nameProduct">Samsung Galaxy J7 Prime (Gold, 16 GB) (3 GB RAM)</h3>
+                <p class="gia">
+                    <span class="giakm" id = "price">200000</span><span> VND</span>
+                    <del class="giagoc">280000</del><span> VND</span>
+                    <label>Free delivery</label>
+                </p>
+                <div class="km">
+                    <ul>
+                        <li>
+                            Cash on Delivery Eligible.
+                        </li>
+                        <li>
+                            Shipping Speed to Delivery.
+                        </li>
+                        <li>
+                            EMIs from $655/month.
+                        </li>
+                        <li>
+                            Bank OfferExtra 5% off* with Axis Bank Buzz Credit CardT&C
+                        </li>
+                    </ul>
+                </div>
+                <div class="cauhinh">
+                    <ul>
+                        <li >
+                            3 GB RAM | 16 GB ROM | Expandable Upto 256 GB
+                        </li>
+                        <li >
+                            5.5 inch Full HD Display
+                        </li>
+                        <li >
+                            13MP Rear Camera | 8MP Front Camera
+                        </li>
+                        <li >
+                            3300 mAh Battery
+                        </li>
+                        <li >
+                            Exynos 7870 Octa Core 1.6GHz Processor
+                        </li>
+                    </ul>
+                </div>
+                <div class="nutgh">
+                    <div class="nut">
+                        <form >
+                            <!-- <fieldset> -->
+                                
+                                <input type="button" name="submit" value="Thêm vào giỏ hàng" class="buttonAddCart" onclick="addCart()"/>
+                            <!-- </fieldset> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <!-- footbaner -->
+    <div class="section__product--shoutout">
+        <div class="shoutout">
+            <div class="shoutout--text">
+                <h3>Âm thanh mượt mà, sống động</h3>
+                <h2>Xếp hạng tai nghe của năm 2018</h2>
+                <p>Hiện đang giảm 20% tại tất cả các hệ thống cửa hàng trên toàn quốc</p>
+            </div>
+            <span class="new-popup">Hot</span>
+            <img src="./images/off1.png" alt="" class="shoutout--image">
+        </div>
+        <div class="shoutout">
+            <div class="shoutout--text">
+                <h3>Điện thoại iPhone 7 giảm giá sập sàn</h3>
+                <h2>Phá vỡ kỉ lục doanh số bán lẻ của Apple năm 2016</h2>
+                <p>Hiện đang giảm 70% tại các hệ thống cửa hàng trên toàn quốc</p>
+            </div>
+            <span class="new-popup">Hot</span>
+            <img src="./images/ip7.png" alt="" class="shoutout--image">
+        </div>
+    </div>
+    <!-- footer -->
+    <div>
+        <div class="Footer">
+            <div class="Detail-footer">
+                <div class="Detail-footer1">
+                    <h3 class="Footer__heading">Sản phẩm</h3>
+                    <ul class="Footer-List">
+                        <li class="Footer-item">
+                            <a href="" class="footer-item-link">Điện thoại</a>
+                        </li>
+                        <li class="Footer-item">
+                            <a href="" class="footer-item-link">Laptop</a>
+                        </li>
+                        <li class="Footer-item">
+                            <a href="" class="footer-item-link">TV,Audio</a>
+                        </li>
+                        <li class="Footer-item">
+                            <a href="" class="footer-item-link">Smartphones</a>
+                        </li>
+                        <li class="Footer-item">
+                            <a href="" class="footer-item-link">Máy giặt</a>
+                        </li>	
+                        <li class="Footer-item">
+                            <a href="" class="footer-item-link">Refrigerators</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="Detail-footer1">
+                    <h3 class="Footer-heading">Link nhanh</h3>
+                    <ul class="Footer-List">
+                        <li class="Footer-item">
+                            <a href="" class="footer-item-link">Giới thiệu</a>
+                        </li>
+                        <li class="Footer-item">
+                            <a href="" class="footer-item-link">Liên lạc</a>
+                        </li>
+                        <li class="Footer-item">
+                            <a href="" class="footer-item-link">Trợ giúp</a>
+                        </li>
+                        <li class="Footer-item">
+                            <a href="" class="footer-item-link">Điều khoản</a>
+                        </li>
+                        <li class="Footer-item">
+                            <a href="" class="footer-item-link">Chính sách</a>
+                        </li>					
+                    </ul>
+                </div>
+                <div class="Detail-footer1">
+                    <h3 class="Footer-heading">Liên lạc</h3>
+                    <ul class="Footer-List">
+                        <li class="Footer-item">
+                            <img src="./images/1.PNG" alt="" class="anh1" >			
+                            <a href="" class="footer-item-link">Quận Hoàn Kiếm, HN</a>
+                        </li>
+                        <li class="Footer-item">
+                            <img src="./images/2.PNG" alt="" class="anh1" >	
+                            <a href="" class="footer-item-link">0330.19.589.6666</a>
+                        </li>
+                        <li class="Footer-item">
+                            <img src="./images/3.PNG" alt="" class="anh1" >	
+                            <a href="" class="footer-item-link">0985589666</a>
+                        </li>
+                        <li class="Footer-item">
+                            <img src="./images/4.PNG" alt="" class="anh1" >	
+                            <a href="" class="footer-item-link">mail1@example.com</a>
+                        </li>
+                        <li class="Footer-item">
+                            <img src="./images/4.PNG" alt="" class="anh1" >	
+                            <a href="" class="footer-item-link">mail2@example.com</a>
+                        </li>	
+                        
+                    </ul>
+                </div>
+                <div class="Detail-footer1">
+                    <h3 class="Footer-heading">Newsletter</h3>
+                    <p class="footer-free">Miễn phí vận chuyển đơn hàng </p>
+                    <p class="footer-free"> đầu tiên!</p>
+                    <div class="email--go">
+                        <input type="text" placeholder="Email" name="Email" class="inputemail">
+                        <button class="buttongo">Go</button>
+    
+                    </div>
+                    <h3 class="theo-doi">Theo dõi</h3>
+                    <ul class="list-anh">
+                        <li class="icon3">
+                            <a><img src="./images/fb.PNG" alt="fb"></a>
+                        </li>
+                        <li class="icon3">
+                            <a><img src="./images/email.PNG" alt="fb"></a>
+                        </li>
+                        <li class="icon3">
+                            <a><img src="./images/google.PNG" alt="fb"></a>
+                        </li>
+                    </ul>
+                </div>
+    
+    
+            </div>
+        </div>
+        <div class="Footer2">
+            <div class="footer2-sub">
+                <div class="footer2-subcon">
+                    <h5 class="texth5">Mobile & Table</h5>
+                    <ul class="ulfooter2">
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Android</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Smartphones</a>
+                        </li>
+                        <li class="lifooter2">
+                                <a href="#" class="text2">Feature Phones</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Unboxed Phones</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Refurbished Phones</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Tablets</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">CDMA Phones</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Value Added Services</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Sell Old</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Used Mobiles</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer2-subcon">
+                    <h5 class="texth5">Computers :</h5>
+                    <ul class="ulfooter2">
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Laptop</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Printers</a>
+                        </li>
+                        <li class="lifooter2">
+                                <a href="#" class="text2">Router</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Ink & Toner Cartridges</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Unboxed & Refurbished Laptops</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Assembled Desktops</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Data Cards</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </div>
+                <div class="footer2-subcon">
+                    <h5 class="texth5">TV, Audio & Large Appliances :</h5>
+                    <ul class="ulfooter2">
+                        <li class="lifooter2">
+                            <a href="#" class="text2">TVs & DTH</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Home Theatre Systems</a>
+                        </li>
+                        <li class="lifooter2">
+                                <a href="#" class="text2">Hidden Cameras & CCTVs</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Refrigerators</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Washing Machines</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Air Conditioners</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Cameras</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Speakers</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="footer2-subcon">
+                    <h5 class="texth5">Mobile & Table</h5>
+                    <ul class="ulfooter2">
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Android</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Smartphones</a>
+                        </li>
+                        <li class="lifooter2">
+                                <a href="#" class="text2">Feature Phones</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Unboxed Phones</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Refurbished Phones</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Tablets</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">CDMA Phones</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Value Added Services</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Sell Old</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Used Mobiles</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer2-subcon">
+                    <h5 class="texth5">Mobile & Laptop Accessories :</h5>
+                    <ul class="ulfooter2">
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Headphones</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Power Banks</a>
+                        </li>
+                        <li class="lifooter2">
+                                <a href="#" class="text2">Backpacks</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Mobile Cases & Covers</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Pen Drives</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">External Hard Disks</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Mouse</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Smart Watches & Fitness Bands</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">MicroSD Cards</a>
+                        </li>		
+                    </ul>
+                </div>
+                <div class="footer2-subcon">
+                    <h5 class="texth5">Appliances :</h5>
+                    <ul class="ulfooter2">
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Trimmers</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Hair Dryers</a>
+                        </li>
+                        <li class="lifooter2">
+                                <a href="#" class="text2">Emergency Lights</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Water Purifiers</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Electric Kettles</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Hair Straighteners</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Induction Cooktops</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Sewing Machines</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Geysers</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="footer2-subcon">
+                    <h5 class="texth5">Popular on Electro Store</h5>
+                    <ul class="ulfooter2">
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Offers & Coupons</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Couple Watches</a>
+                        </li>
+                        <li class="lifooter2">
+                                <a href="#" class="text2">Gas Stoves</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Air Coolers</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Air Purifiers</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Headphones</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Headsets</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Pressure Cookers</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Sandwich Makers</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Air Friers</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Irons</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">LED TV</a>
+                        </li>
+                        <li class="lifooter2">
+                            <a href="#" class="text2">Sandwich Makers</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer2-subcon">
+                    <h5 class="texth5">Popular on Electro Store</h5>
+                    <img src="./images/thanhtoan.PNG" alt="#" class="img4anh">
+                </div>
+            </div>
+        </div>
+        <div class="Footer3">
+            <div class="Footer3-sub">
+                <p class="pfooter3">© 2020. Học viện công nghệ Bưu Chính Viễn Thông. GPDKKD: 6666666 do bộ TT & TT TP.HN cấp ngày 06/06/2020. GP số 66/GP-TTĐT do Sở TTTT TP HN cấp ngày 06/06/2020</p>
+            <p class="pfooter34">Địa chỉ:Km 10 đường Trần Phú, phường Mộ Lao, quận Hà Đông. Điện thoại: 0985.589.666</p>
+            <p class="pfooter35">Email: trungnghia11052015@gmail.com. Chịu trách nhiệm nội dung: Lê Trung Nghĩa</p>	
+            </div>
+        </div>
+    </div>
+    
+    <script src="action.js"></script>
+</body>
+</html>

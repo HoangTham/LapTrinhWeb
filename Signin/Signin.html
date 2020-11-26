@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="Signin.css" >
+    <script>
+        function checkSignin(){
+            var name = document.getElementById("name");
+            var pass = document.getElementById("pass");
+            var email = document.getElementById("email");
+            var phone = document.getElementById("phone");
+            var theName = document.getElementById("noteName");
+            var thePass = document.getElementById("notePass");
+            var theEmail = document.getElementById("noteEmail");
+            var thePhone = document.getElementById("notePhone");
+            
+            if ( name.value =="")
+               {
+                        theName.style.display = "block";
+                        theName.innerHTML = "Hãy nhập vào tên";
+                        theName.style.color = "red";
+                        theName.style.fontSize = "15px";
+                        return false;
+               }
+            else{
+                theName.style.display = "none";
+                if (email.value=="")
+               {
+                        theEmail.style.display = "block";
+                        theEmail.innerHTML = "Hãy nhập vào email";
+                        theEmail.style.color = "red";
+                        theEmail.style.fontSize = "15px";
+                        return false;
+               }
+               else{
+                theEmail.style.display = "none";
+                
+                if (phone.value=="")
+               {
+                        thePhone.style.display = "block";
+                        thePhone.innerHTML = "Hãy nhập vào số điện thoại của bạn";
+                        thePhone.style.color = "red";
+                        thePhone.style.fontSize = "15px";
+                        return false;
+               }
+               else{
+                thePass.style.display = "none";
+                if (pass.value=="")
+               {
+                        thePass.style.display = "block";
+                        thePass.innerHTML = "Hãy nhập vào mật khẩu";
+                        thePass.style.color = "red";
+                        thePass.style.fontSize = "15px";
+                        return false;
+               }
+               else{
+                thePass.style.display = "none";
+                // kiểm tra email
+                var emailcheck = /^([\w\.])+@([a-zA-Z0-9\-])+\.([a-zA-Z]{2,4})(\.[a-zA-Z]{2,4})?$/;
+                
+                if(emailcheck.test(email.value)){
+            // if(inp.match(email)){
+                
+                theEmail.style.display = "none";
+                // check sdt
+                
+                var phoneNum = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/; 
+                if(phone.value.match(phoneNum)) {
+                return true;
+            }
+            else {
+                thePhone.style.display = "block";
+                thePhone.innerHTML = "Hay nhap số điện thoại hợp lệ";
+                thePhone.style.color = "red";
+            
+                return false;
+            }
+        
+            }
+            else{
+                
+                theEmail.style.display = "block";
+                theEmail.innerHTML = "Hay nhap email hop le";
+                theEmail.style.color = "red";
+                return false;
+            }
+               }
+                
+               }
+               }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="formSignin">
+        <div class = "formSign">
+        
+            <h1 class = "tieude">Sign in Now</h1>
+            <form class = "infoSign">
+                <p>Username</p>
+                <input type="text" class="inputSi" id = "name" name="userName" placeholder="Enter Username">
+                <b id = "noteName"></b>
+                <p>Email</p>
+                <input type="text" class="inputSi" id="email" name="email" placeholder="Enter your Email">
+                <b id = "noteEmail"></b>
+                <p>Phone</p>
+                <input type="text" class="inputSi" id = "phone" name="phone" placeholder="Enter your Phone">
+                <b id = "notePhone"></b>
+                <p>Password</p>
+                <input type="password" class = "inputSi" id = "pass" name="passWord" placeholder="Enter Password">
+                <b id = "notePass"></b>
+                <!-- <div id = "checkAcceptSign">
+                
+                    <input type="checkbox" id = "checkAccept" name = "accept" style = "width: 1.2em;
+                        height: 1.2em; border-radius: 5px;" >
+                        <label for="checkAccept" id = "checkAcc"><span>Tôi chấp nhận điều khoản và chính sách</span></label>
+                    </div> -->
+                <input type="submit" id = "submitSignin" value="Sign in" onclick="return checkSignin()">
+                <a href="../Login/Login.html" id = "haveAcc">Bạn đã có tài khoản? Đăng nhập</a>
+            </form>
+        </div>
+        </div>
+</body>
+</html>

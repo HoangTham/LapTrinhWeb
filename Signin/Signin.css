@@ -1,0 +1,87 @@
+.formSignin{
+    text-align: center;
+    background-image: url(Images/content.jpg);
+    background-repeat: no-repeat;
+    padding-top: 20px;
+    width: 100%;
+    background-size: cover;
+    height: auto;
+    color: #c605f7;
+    
+}
+.tieude{
+    color: #c605f7;
+    font-size: 3vw;
+}
+.infoSign{
+    color:#c605f7;
+    font-size: 1.5vw;
+    text-align: left;
+    padding-left: 10%;
+    padding: 30px;
+    padding-top: 15px;
+    padding-right: 10%;
+}
+.formSign{
+    display: inline-block;
+    background-color: rgb(100 107 113 / 56%);
+    height: inherit;
+    width: 40%;
+    padding: initial;
+}
+.inputSi{
+    box-sizing: border-box;
+    padding: 15px;
+    border-radius: 5px;
+    border: 0px;
+    border-bottom: #c605f7 solid 3px;
+    opacity: 0.5;
+    
+    width: 100%;
+}
+.inputSi:hover{
+    border: #c605f7 solid 5px;
+}
+.inputSi:focus {
+    background-color: rgb(188, 243, 247);
+    border: #c605f7 solid 5px;
+}
+.checkAccept{
+    width: 50%;
+    float: left;
+    font-size: 1.8vw;
+
+    color: #c605f7;
+}
+#submitSignin{
+    text-align: center;
+    margin: auto;
+    display: block;
+    padding: 10px;
+    color:#f7cb05;
+    padding-left: 60px;
+    font-size: initial;
+    padding-right: 60px;
+    margin-top: 50px;
+    background-color: #c605f7;
+    border-radius: 5px;
+}
+#submitSignin:hover{
+    cursor: pointer;
+    background-color: rgb(33, 47, 248);
+}
+/* #checkAcceptSign{
+    padding-top: 20px;
+    text-align: center;
+    display: block;
+    
+    padding-bottom: 5px;
+} */
+#haveAcc{
+    display: block;
+    text-align: center;
+    padding-top: 60px;
+}
+#haveAcc:hover{
+    color: tan;
+}

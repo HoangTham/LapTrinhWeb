@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Cart/Cart.css">
+    <link rel="stylesheet" type="text/css" href="./styles/header.css" >
+    <link rel="stylesheet" href="./styles/shopee.css">
+    <link rel="stylesheet" href="./styles/body.css">
+    <link rel="stylesheet" type="text/css" href="./styles/footer.css">
+
+    <script>
+        var modal = document.getElementById("fas fa-map-marker");
+        window.onclick = function(event) {
+        if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+    </script>
+    <script type="text/javascript" src="shopee.js"></script>
+    <script src="javaScript.js"></script>
+</head>
+<body>
+    <!-- top-header -->
+    <div class="thanhxanh" >
+        <div class="container" style="width: 100%;">
+                <div class="trai"  >
+                    <p >Offer Zone Top Deals & Discounts
+                        <!-- <i class="fas fa-shopping-cart "></i> -->
+                    </p>
+                </div>
+                <div class="phai"  >
+                    <!-- header lists -->
+                    <ul>
+                        <li style="width: 15%; padding-left: 20%;">
+                            <a href="#small-dialog1" onclick="document.getElementById('small-dialog1').style.display = 'block'"><i class="fas fa-map-marker "></i>Vị trí </a>
+                        </li>
+                        <li  style="width: 15%;">
+                            <a href="#"><i class="fas fa-truck"></i>Vận chuyển</a>
+                        </li>
+                        <li  style="width: 15%;">
+                            <a href="#"><i class="fas fa-phone "></i> 001 234 5678</a>
+                        </li>
+                        <li  style="width: 15%;">
+                            <a href="./Login/Login.html" ><i class="fas fa-sign-in-alt"></i> Đăng nhập </a>
+                        </li>
+                        <li  style="width: 15%;">
+                            <a href="./Signin/Signin.html"><i class="fas fa-sign-out-alt "></i>Đăng kí </a>
+                        </li>
+                    </ul> 
+                    <!-- //header lists -->
+            </div>
+       </div>
+   </div> 
+    <!-- Button trigger modal(select-location) -->
+    
+    <div id="small-dialog1" class="mfp-hide" style="display: none;">
+        <span id = "btnClose" onclick="document.getElementById('small-dialog1').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <div class="select-city">
+            
+            <h3>
+                <i class="fas fa-map-marker" ></i> Chọn vị trí của bạn</h3>
+            <select class="list_of_cities" >
+                <optgroup >
+                    <option selected style="display:none;color:#eee;">Thành phố</option>
+                    <option>Hà Nội</option>
+                    <option>Thanh Hóa</option>
+                    <option>Hồ Chí Minh</option>
+                    <option>Đà Nẵng</option>
+                    <option>Cần thơ</option>
+                    <option>Thái Nguyên</option>
+                    <option>Kiên Giang</option>
+                    <option>Hậu giang</option>
+                    <option>Huế</option>
+                    <option>Nghệ An</option>
+                    <option>Quảng Nam</option>
+                </optgroup>
+                </select>
+            <div class="clearfix"></div>
+        </div>  
+    </div> 
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Giỏ Hàng</h5>
+                <span class="close" id = "closeCart">&times;</span>
+            </div>
+            
+            <div class="modal-body">
+                <div class="cart-row">
+                    <span class="cart-item cart-header cart-column">Sản Phẩm</span>
+                    <span class="cart-price cart-header cart-column">Giá</span>
+                    <span class="cart-quantity cart-header cart-column">Số Lượng</span>
+                </div>
+                <div class="cart-items">
+                    <!-- <div class="cart-row">
+                    <div class="cart-item cart-column">
+                        <img class="cart-item-image" src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/sualai.jpg?v=1573720306000" width="100" height="100">
+                        <span class="cart-item-title">Mũi Hàn 500</span>
+                    </div>
+                    <span class="cart-price cart-column">25000</span>
+                    <div class="cart-quantity cart-column">
+                        <input class="cart-quantity-input" type="number" value="1">
+                        <button class="btn btn-danger" type="button" onclick="deleteCart()">Xóa</button>
+                    </div>
+                </div> -->
+                </div>
+                <div class="cart-total" style="float: left;">
+                    <strong class="cart-total-title">Tổng Cộng:</strong>
+                    <span class="cart-total-price">0VNĐ</span>
+                </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary close-footer" id= "closeCartbtn">Đóng</button>
+                <button type="button" class="btn btn-primary order" id = "Payment" style="background-color:#0275d8;   border-color: #0275d8;">Thanh Toán</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- header-bottom-->
+    <div class="header-bot" style="width: 100%;"> 
+                <!-- logo -->
+                <div class="logotrai">
+                    <h1 class="text-center">
+                        <a href="index.html" class="font-weight-bold font-italic " style="width: 10%;">
+                            <img src="Images/logo2.png" alt=" " id = "logoImg" > 
+                        </a>
+                        <a href="index.html" class="font-weight-bold font-italic" style="width: 18%;">
+                            <p id = "logoBig">Electro Store </p> 
+                        </a>
+                    </h1>
+                </div>
+                <!-- //logo -->
+                <!-- search -->
+                 <div class=" timkiem">
+                    <form class="form-inline" action="#" method="post">
+                        <input class="form-control" id = "boxSearch" type="search" placeholder="Bạn tìm gì.." aria-label="Search" required>
+                        <button class="btn" type="submit" style="width: 15%;">Tìm kiếm</button>
+                    </form>
+                </div>  
+
+                <div id = "cartLogo" >
+                    <button id="cart" onclick="openCart()">
+                        <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                        <img src="images/cart.png" id = "imgCart" alt = "Hinh gio hang">                        
+                    </button>
+                </div>
+                <!-- //search -->
+                        <!-- cart details -->
+                 <!-- <div class="giohang">
+                    <form action="#" method="post" class="last">
+                        <img src="Images/cart.png" alt = "Hinh gio hang">
+                        <input type="hidden" name="cmd" value="_cart">
+                        <input type="hidden" name="display" value="1">
+                            <button class="btn" type="submit" name="submit" value="">
+                                <i class="fas fa-cart-arrow-down"></i>
+                            </button>
+                        </form>
+                </div>       -->
+            </div>
+
+    <div class="navbar-inner">
+                <div class="danhmuc">
+                    <form action="#" method="post">
+                        
+                        <select id="agileinfo-nav_search" name="agileinfo_search" class="border" required="">
+                            <option value="">Xem tất cả</option> 
+                             <option value="Televisions">Tivi</option>
+                            <option value="Headphones">Điện thoại</option>
+                            <option value="Computers">Laptop</option>
+                            <option value="Appliances">Phụ kiện</option>
+                            <option value="iPad & Tablets">iPad & Tablets</option> 
+                     </select>
+                 </form>
+            </div>
+            <!-- kết thúc danh mục -->
+                <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>  -->
+                 <div class="nav-menu" >
+                    <ul id = navMenu>
+                        <li class="nav-itemDropdown">
+                            <a class="nav-link" href="index.html">Trang chủ
+                                <!-- <span class="sr-only">(current)</span> -->
+                            </a>
+                        </li>
+                        <li class="nav-itemDropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Điện thoại
+                            </a>
+                            <div class="dropdown-menu">
+                                <ul class="multi-column-dropdown">
+                                    <li >
+                                        <a href="product.html">Tất cả điện thoại</a>
+                                    </li>
+                                    <li >
+                                        <a href="product.html">Iphone</a>
+                                    </li>
+                                    <li >
+                                        <a href="product.html">Sam sung</a>
+                                    </li>
+                                    <li >
+                                        <a href="product.html">Xaomi</a>
+                                    </li>
+                                    <li >
+                                        <a href="product.html">Oppo</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html">Vivo</a>
+                                    </li>
+                                    <li>
+                                        <a href="product.html">Smart Home</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-itemDropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Laptop
+                            </a>
+                            <div class="dropdown-menu">
+                                            <ul class="multi-column-dropdown">
+                                                <li>
+                                                    <a href="product2.html">Asus</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product2.html">Aces</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product2.html">Dell</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product2.html">Lenovo</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product2.html">Game Zone</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product2.html">Software</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                        </li> 
+                        <li class="nav-itemDropdown ">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Phụ kiện
+                            </a>
+                            <div class="dropdown-menu">
+                                            <ul class="multi-column-dropdown">
+                                                <li>
+                                                    <a href="product3.html">Tai nghe</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product3.html">Pin dự phòng</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product3.html">Chuột</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product3.html">Bàn phím</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product3.html">Cameras</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product3.html">Loa</a>
+                                                </li>
+                                                <li>
+                                                    <a href="product3.html">Wifi</a>
+                                                </li>
+                                            </ul>
+                              </div>
+                        <li class="nav-itemDropdown">
+                            <a class="nav-link" href="checkout.html">Giỏ hàng</a>
+                        </li>
+                
+                        <li class="nav-itemDropdown">
+                            <a class="nav-link" href="contact.html">Liên lạc</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- het header -->
+            <div class="slidewraper">
+        <div class="cacslide">
+            <ul>
+                <li>
+                    <div class="motslide">
+                        <div class="anh" style="background-image:url(./Images/b1.jpg);"></div>
+                        <div class="xam">
+                            <div class="text ">
+                                <p>Get flat
+                                    <span class="iteam1">10%</span> Cashback</p>
+                                <h3 class="font-weight-bold ">The
+                                    <span clas="big">Big</span>
+                                    Sale
+                                </h3>
+                                <a class="button2" href="product.html">Shop Now </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="active">
+                    <div class="motslide">
+                        <div class="anh" style="background-image: url(./Images/b2.jpg);"></div>
+                        <div class="xam">
+                            <div class="text ">
+                                <p>advanced
+                                    <span>Wireless</span> earbuds</p>
+                                <h3 class="font-weight-bold ">Best
+                                    <span>Headphone</span>
+                                </h3>
+                                <a class="button2" href="product.html">Shop Now </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="motslide">
+                        <div class="anh" style="background-image: url(./Images/b3.jpg);"></div>
+                        <div class="xam">
+                            <div class="text ">
+                                <p>Get flat
+                                    <span>10%</span> Cashback</p>
+                                <h3 class="font-weight-bold ">New
+                                    <span>Standard</span>
+                                </h3>
+                                <a class="button2" href="product.html">Shop Now </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="motslide">
+                        <div class="anh" style="background-image: url(./Images/b4.jpg);"></div>
+                        <div class="xam">
+                            <div class="text">
+                                <p>Get Now
+                                    <span>40%</span> Discount</p>
+                                <h3 class="font-weight-bold ">Today
+                                    <span>Discount</span>
+                                </h3>
+                                <a class="button2" href="product.html">Shop Now </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="chuyenslide">
+            <ul>
+                <li>1</li>
+                <li class="kichhoat">2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- het banner -->
+    <div class="container">
+        <div class="title__container">
+            <p class="title">Our New Product</p>
+        </div>
+        <div class="section__product--container">
+            <div class="section__product">
+                <div class="section__product--items">
+                    <div >
+                        <p class="product__new--title">Sản phẩm mới</p>
+                    </div>
+                    <div class="content">
+                        <div class="product product--1">
+                            
+                            <div class="product__item--info">
+                                <a class="item--name" href="./chitietsp/chitietsp.html">
+                                    <div  class="item__image--container">
+
+                                        <img id = "1" src="./images/m1.jpg" alt="j7" class="item--image" />
+                                    </div>
+                                    <hr>
+                                    <p id = "2" class="item--name">Samsung Galaxy J7</p></a>
+        
+                                <p id = "3"class="item--price">4999999 VND</p>
+                                
+                                <!-- <button id="cart__button" type="button" class="buttonAddCart" onclick="addCart()">Giỏ hàng</button> -->
+                                <input id = "cart__button" type="button" name="submit" value="Thêm vào giỏ hàng" class="buttonAddCart" onclick="addCart1()"/>
+                            </div>
+                        </div>
+                        <div class="product product--2">
+                            <span class="new-popup">New</span>
+                            <div class="product__item--info">
+                                <a class="item--name" href="./chitietsp/chitietsp.html">
+                                    <div class="item__image--container">
+
+                                        <img src="./images/m2.jpg" alt="a37f" class="item--image" />
+                                    </div>
+                                    <hr>
+                                    <p class="item--name">OPPO A37f</p></a>
+        
+                                <p class="item--price">5999999 VND</p>
+                                <button id="cart__button" type="button">Giỏ hàng</button>
+                            </div>
+                        </div>
+                        <div class="product product--3">
+                            <span class="new-popup">New</span>
+                            <div class="product__item--info">
+                                <a class="item--name" href="./chitietsp/chitietsp.html">
+                                    <div class="item__image--container">
+
+                                        <img src="./images/m3.jpg" alt="iphone x" class="item--image" />
+                                    </div>
+                                    <hr>
+                                    <p class="item--name">Apple iPhone X</p></a>
+        
+                                <p class="item--price">11.999.999 VND</p>
+                                <button id="cart__button" type="button">Giỏ hàng</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="section__product--items">
+                    <div >
+                        <p class="product__new--title">Laptop</p>
+                    </div>
+                    <div class="content">
+                        <div class="product product--1">
+                            <span class="new-popup">New</span>
+                            <div class="product__item--info">
+                                <a class="item--name" href="./chitietsp/chitietsp.html">
+                                    <div class="item__image--container">
+
+                                        <img src="./images/laptop5.png" alt="j7" class="item--image" />
+                                    </div>
+                                    <hr>
+                                    <p class="item--name">HP probook</p></a>
+        
+                                <p class="item--price">16.999.999 VND</p>
+                                <button id="cart__button" type="button">Giỏ hàng</button>
+                            </div>
+                        </div>
+                        <div class="product product--2">
+                            <!-- <a href="#">
+                                <div class="item__image--container">
+
+                                    <img src="./images/m2.jpg" alt="j7" class="item--image" />
+                                </div>
+                            </a> -->
+                            <!-- <hr> -->
+                            <div class="product__item--info">
+                                <a class="item--name" href="./chitietsp/chitietsp.html">
+                                    <div class="item__image--container">
+
+                                        <img src="./images/laptop6.png" alt="a37f" class="item--image" />
+                                    </div>
+                                    <hr>
+                                    <p class="item--name">Aces Vivobook</p></a>
+        
+                                <p class="item--price">14.999.999 VND</p>
+                                <button id="cart__button" type="button">Giỏ hàng</button>
+                            </div>
+                        </div>
+                        <div class="product product--3">
+                            <span class="new-popup">New</span>
+                            <div class="product__item--info">
+                                <a class="item--name" href="./chitietsp/chitietsp.html">
+                                    <div class="item__image--container">
+
+                                        <img src="./images/laptop7.png" alt="iphone x" class="item--image" />
+                                    </div>
+                                    <hr>
+                                    <p class="item--name">Dell XPS1021U</p></a>
+        
+                                <p class="item--price">29.999.999 VND</p>
+                                <button id="cart__button" type="button">Giỏ hàng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section__product--discount">
+                    <h3>Summer Carnival</h3>
+                    <p>Get extra 10% off</p>
+                    <img src="./images/image1.png" alt="" class="image__discount">
+                </div>
+                <div class="section__product--items">
+                    <div >
+                        <p class="product__new--title">Phụ kiện</p>
+                    </div>
+                    <div class="content">
+                        <div class="product product--1">
+                            <span class="new-popup">New</span>
+                            <div class="product__item--info">
+                                <a class="item--name" href="./chitietsp/chitietsp.html">
+                                    <div class="item__image--container">
+
+                                        <img src="./images/phukien1.png" alt="j7" class="item--image" />
+                                    </div>
+                                    <hr>
+                                    <p class="item--name">Tai nghe HyperX <br>Cloud Flight Wireless</p></a>
+        
+                                <p class="item--price">3.999.999 VND</p>
+                                <button id="cart__button" type="button">Giỏ hàng</button>
+                            </div>
+                        </div>
+                        <div class="product product--2">
+                            <span class="new-popup">New</span>
+                            <div class="product__item--info">
+                                <a class="item--name" href="./chitietsp/chitietsp.html">
+                                    <div class="item__image--container">
+
+                                        <img src="./images/phụkien2.png" alt="a37f" class="item--image" />
+                                    </div>
+                                    <hr>
+                                    <p class="item--name">Loa 245</p></a>
+        
+                                <p class="item--price">19.999.999 VND</p>
+                                <button id="cart__button" type="button">Giỏ hàng</button>
+                            </div>
+                        </div>
+                        <div class="product product--3">
+                            <span class="new-popup">New</span>
+                            <div class="product__item--info">
+                                <a class="item--name" href="./chitietsp/chitietsp.html">
+                                    <div class="item__image--container">
+
+                                        <img src="./images/m6.jpg" alt="iphone x" class="item--image" />
+                                    </div>
+                                    <hr>
+                                    <p class="item--name">Pin sạc dự phòng</p></a>
+        
+                                <p class="item--price">6.999.999 VND</p>
+                                <button id="cart__button" type="button">Giỏ hàng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section__sidebar">
+                
+                    <div class="sidebar__search">
+                        <h3 class="">Search Here..</h3>
+                        <form action="#" method="post">
+                            <input type="text" placeholder="Tên sản phẩm" name="search" required="">
+                            <input type="submit" value="Tìm">
+                        </form>
+                    </div>
+                    <hr>
+                    <!-- price -->
+                    <div class="sidebar__price">
+                        <h3 class="">Giá</h3>
+                        <div class="sidebar__price--range">
+                            <ul>
+                                <li>
+                                    <a href="#">Dưới 1 triệu</a>
+                                </li>
+                                <li class="">
+                                    <a href="#">1 - 5 triệu</a>
+                                </li>
+                                <li>
+                                    <a href="#">5 - 10 triệu</a>
+                                </li>
+                                <li class="">
+                                    <a href="#">10 - 20 triệu</a>
+                                </li>
+                                <li>
+                                    <a href="#">20 - 30 triệu</a>
+                                </li>
+                                <li class="">
+                                    <a href="#">Trên 30 triệu</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- discounts -->
+                    <div class="">
+                        <h3 class="">Giảm giá</h3>
+                        <ul>
+                            <li>
+                                <input type="checkbox" class="checked">
+                                <span class="span">giảm 5%</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" class="checked">
+                                <span class="span">giảm 10%</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" class="checked">
+                                <span class="span">giảm 20%</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" class="checked">
+                                <span class="span">giảm 30%</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" class="checked">
+                                <span class="span">giảm 50%</span>
+                            </li>
+                            <li>
+                                <input type="checkbox" class="checked">
+                                <span class="span">giảm 60%</span>
+                            </li>
+                        </ul>
+                    </div>
+                   
+                    
+                
+            </div>
+        </div>
+           
+        <div class="section__product--shoutout">
+            <div class="shoutout">
+                <div class="shoutout--text">
+                    <h3>Âm thanh mượt mà, sống động</h3>
+                    <h2>Xếp hạng tai nghe của năm 2018</h2>
+                    <p>Hiện đang giảm 20% tại tất cả các hệ thống cửa hàng trên toàn quốc</p>
+                </div>
+                <span class="new-popup">Hot</span>
+                <img src="./images/off1.png" alt="" class="shoutout--image">
+            </div>
+            <div class="shoutout">
+                <div class="shoutout--text">
+                    <h3>Điện thoại iPhone 7 giảm giá sập sàn</h3>
+                    <h2>Phá vỡ kỉ lục doanh số bán lẻ của Apple năm 2016</h2>
+                    <p>Hiện đang giảm 70% tại các hệ thống cửa hàng trên toàn quốc</p>
+                </div>
+                <span class="new-popup">Hot</span>
+                <img src="./images/ip7.png" alt="" class="shoutout--image">
+            </div>
+        </div>
+        <div class="section__product--ad"></div>
+    </div>
+    <div class="footer-top-first">
+            <div class="container-py-md-5-py-sm-4-py-3">
+                <!-- footer first section -->
+                <h2 class="footer-top-head-w3l-font-weight-bold mb-2">Electronics :</h2>
+                <p class="footer-main mb-4">
+                    If you're considering a new laptop, looking for a powerful new car stereo or shopping for a new HDTV, we make it easy to
+                    find exactly what you need at a price you can afford. We offer Every Day Low Prices on TVs, laptops, cell phones, tablets
+                    and iPads, video games, desktop computers, cameras and camcorders, audio, video and more.</p>
+                <!-- //footer first section -->
+                <!-- footer second section -->
+                <div class="row-w3l-grids-footer-border-top-border-bottom-py-sm-4-py-3">
+                    <div class="col-md-4-offer-footer">
+                        <div class="row">
+                            <div class="col-4 icon-fot">
+                                <i class="fas fa-dolly"></i>
+                            </div>
+                            <div class="col-8 text-form-footer">
+                                <h3>Miễn phí vận chuyển</h3>
+                                <p>Mặt hàng trên 10 triệu</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4-offer-footer-my-md-0-my-4">
+                        <div class="row">
+                            <div class="col-4 icon-fot">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <div class="col-8 text-form-footer">
+                                <h3>Vận chuyển nhanh</h3>
+                                <p>Toàn nước</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4-offer-footer">
+                        <div class="row">
+                            <div class="col-4 icon-fot">
+                                <i class="far fa-thumbs-up"></i>
+                            </div>
+                            <div class="col-8 text-form-footer">
+                                <h3>Big Choice</h3>
+                                <p>of Products</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- //footer second section -->
+            </div>
+        </div>
+
+    <!-- het body -->
+
+    <div class="Footer">
+        <div class="Detail-footer">
+            <div class="Detail-footer1">
+                <h3 class="Footer__heading">Sản phẩm</h3>
+                <ul class="Footer-List">
+                    <li class="Footer-item">
+                        <a href="" class="footer-item-link">Điện thoại</a>
+                    </li>
+                    <li class="Footer-item">
+                        <a href="" class="footer-item-link">Laptop</a>
+                    </li>
+                    <li class="Footer-item">
+                        <a href="" class="footer-item-link">TV,Audio</a>
+                    </li>
+                    <li class="Footer-item">
+                        <a href="" class="footer-item-link">Smartphones</a>
+                    </li>
+                    <li class="Footer-item">
+                        <a href="" class="footer-item-link">Máy giặt</a>
+                    </li>   
+                    <li class="Footer-item">
+                        <a href="" class="footer-item-link">Refrigerators</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="Detail-footer1">
+                <h3 class="Footer-heading">Link nhanh</h3>
+                <ul class="Footer-List">
+                    <li class="Footer-item">
+                        <a href="" class="footer-item-link">Giới thiệu</a>
+                    </li>
+                    <li class="Footer-item">
+                        <a href="" class="footer-item-link">Liên lạc</a>
+                    </li>
+                    <li class="Footer-item">
+                        <a href="" class="footer-item-link">Trợ giúp</a>
+                    </li>
+                    <li class="Footer-item">
+                        <a href="" class="footer-item-link">Điều khoản</a>
+                    </li>
+                    <li class="Footer-item">
+                        <a href="" class="footer-item-link">Chính sách</a>
+                    </li>                   
+                </ul>
+            </div>
+            <div class="Detail-footer1">
+                <h3 class="Footer-heading">Liên lạc</h3>
+                <ul class="Footer-List">
+                    <li class="Footer-item">
+                        <img src="./images/1.PNG" alt="" class="anh1" >         
+                        <a href="" class="footer-item-link">Quận Hoàn Kiếm, HN</a>
+                    </li>
+                    <li class="Footer-item">
+                        <img src="./images/2.PNG" alt="" class="anh1" > 
+                        <a href="" class="footer-item-link">0330.19.589.6666</a>
+                    </li>
+                    <li class="Footer-item">
+                        <img src="./images/3.PNG" alt="" class="anh1" > 
+                        <a href="" class="footer-item-link">0985589666</a>
+                    </li>
+                    <li class="Footer-item">
+                        <img src="./images/4.PNG" alt="" class="anh1" > 
+                        <a href="" class="footer-item-link">mail1@example.com</a>
+                    </li>
+                    <li class="Footer-item">
+                        <img src="./images/4.PNG" alt="" class="anh1" > 
+                        <a href="" class="footer-item-link">mail2@example.com</a>
+                    </li>   
+                    
+                </ul>
+            </div>
+            <div class="Detail-footer1">
+                <h3 class="Footer-heading">Newsletter</h3>
+                <p class="footer-free">Miễn phí vận chuyển đơn hàng </p>
+                <p class="footer-free"> đầu tiên!</p>
+                <div class="email--go">
+                    <input type="text" placeholder="Email" name="Email" class="inputemail">
+                    <button class="buttongo">Go</button>
+
+                </div>
+                <h3 class="theo-doi">Theo dõi</h3>
+                <ul class="list-anh">
+                    <li class="icon3">
+                        <a><img src="./images/fb.PNG" alt="fb"></a>
+                    </li>
+                    <li class="icon3">
+                        <a><img src="./images/email.PNG" alt="fb"></a>
+                    </li>
+                    <li class="icon3">
+                        <a><img src="./images/google.PNG" alt="fb"></a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="Footer2">
+        <div class="footer2-sub">
+            <div class="footer2-subcon">
+                <h5 class="texth5">Mobile & Table</h5>
+                <ul class="ulfooter2">
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Android</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Smartphones</a>
+                    </li>
+                    <li class="lifooter2">
+                            <a href="#" class="text2">Feature Phones</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Unboxed Phones</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Refurbished Phones</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Tablets</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">CDMA Phones</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Value Added Services</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Sell Old</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Used Mobiles</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer2-subcon">
+                <h5 class="texth5">Computers :</h5>
+                <ul class="ulfooter2">
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Laptop</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Printers</a>
+                    </li>
+                    <li class="lifooter2">
+                            <a href="#" class="text2">Router</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Ink & Toner Cartridges</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Unboxed & Refurbished Laptops</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Assembled Desktops</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Data Cards</a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="footer2-subcon">
+                <h5 class="texth5">TV, Audio & Large Appliances :</h5>
+                <ul class="ulfooter2">
+                    <li class="lifooter2">
+                        <a href="#" class="text2">TVs & DTH</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Home Theatre Systems</a>
+                    </li>
+                    <li class="lifooter2">
+                            <a href="#" class="text2">Hidden Cameras & CCTVs</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Refrigerators</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Washing Machines</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Air Conditioners</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Cameras</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Speakers</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="footer2-subcon">
+                <h5 class="texth5">Mobile & Table</h5>
+                <ul class="ulfooter2">
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Android</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Smartphones</a>
+                    </li>
+                    <li class="lifooter2">
+                            <a href="#" class="text2">Feature Phones</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Unboxed Phones</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Refurbished Phones</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Tablets</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">CDMA Phones</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Value Added Services</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Sell Old</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Used Mobiles</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer2-subcon">
+                <h5 class="texth5">Mobile & Laptop Accessories :</h5>
+                <ul class="ulfooter2">
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Headphones</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Power Banks</a>
+                    </li>
+                    <li class="lifooter2">
+                            <a href="#" class="text2">Backpacks</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Mobile Cases & Covers</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Pen Drives</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">External Hard Disks</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Mouse</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Smart Watches & Fitness Bands</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">MicroSD Cards</a>
+                    </li>       
+                </ul>
+            </div>
+            <div class="footer2-subcon">
+                <h5 class="texth5">Appliances :</h5>
+                <ul class="ulfooter2">
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Trimmers</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Hair Dryers</a>
+                    </li>
+                    <li class="lifooter2">
+                            <a href="#" class="text2">Emergency Lights</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Water Purifiers</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Electric Kettles</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Hair Straighteners</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Induction Cooktops</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Sewing Machines</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Geysers</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="footer2-subcon">
+                <h5 class="texth5">Popular on Electro Store</h5>
+                <ul class="ulfooter2">
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Offers & Coupons</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Couple Watches</a>
+                    </li>
+                    <li class="lifooter2">
+                            <a href="#" class="text2">Gas Stoves</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Air Coolers</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Air Purifiers</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Headphones</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Headsets</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Pressure Cookers</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Sandwich Makers</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Air Friers</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Irons</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">LED TV</a>
+                    </li>
+                    <li class="lifooter2">
+                        <a href="#" class="text2">Sandwich Makers</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer2-subcon">
+                <h5 class="texth5">Popular on Electro Store</h5>
+                <img src="./images/thanhtoan.PNG" alt="#" class="img4anh">
+            </div>
+        </div>
+    </div>
+    <div class="Footer3">
+        <div class="Footer3-sub">
+            <p class="pfooter3">© 2020. Học viện công nghệ Bưu Chính Viễn Thông. GPDKKD: 6666666 do bộ TT & TT TP.HN cấp ngày 06/06/2020. GP số 66/GP-TTĐT do Sở TTTT TP HN cấp ngày 06/06/2020</p>
+        <p class="pfooter34">Địa chỉ:Km 10 đường Trần Phú, phường Mộ Lao, quận Hà Đông. Điện thoại: 0985.589.666</p>
+        <p class="pfooter35">Email: trungnghia11052015@gmail.com. Chịu trách nhiệm nội dung: Lê Trung Nghĩa</p> 
+        </div>
+    </div>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="Login.css" >
+    <script>
+        function checkLogin(){
+            var name = document.getElementById("name");
+            var pass = document.getElementById("pass");
+            var theName = document.getElementById("noteName");
+            var thePass = document.getElementById("notePass");
+            if ( name.value =="")
+               {
+                        theName.style.display = "block";
+                        theName.innerHTML = "Hãy nhập vào tên";
+                        theName.style.color = "red";
+                        theName.style.fontSize = "15px";
+                        return false;
+               }
+            else{
+                theName.style.display = "none";
+                if (pass.value=="")
+               {
+                        thePass.style.display = "block";
+                        thePass.innerHTML = "Hãy nhập vào mật khẩu";
+                        thePass.style.color = "red";
+                        thePass.style.fontSize = "15px";
+                        return false;
+               }
+               else{
+                thePass.style.display = "none";
+                return true;
+               }
+            }
+        }
+        
+    </script>
+    
+</head>
+<body>
+    <div class="formLogin">
+        <div class = "formLo">
+        <!-- <img src="" class="imgLogin"> -->
+            <h1 class = "tieude">Login Now</h1>
+            <form class = "info">
+                <p>Username</p>
+                <input type="text" class="inputLo" id = "name" name="userName" placeholder="Enter Username">
+                <b id = "noteName"></b>
+                <p>Password</p>
+                <input type="password" class = "inputLo" id = "pass" name="passWord" placeholder="Enter Password">
+                <b id = "notePass"></b>
+                <div style="padding-top: 15px;">
+                    <div style="width:50%; float: left;"><input type="checkbox" id = "checkRemember" name = "remember" style = "width: 1.2em;
+                        height: 1.2em; border-radius: 5px;" >
+                        <label for="checkRemember"><span>Remember me</span></label>
+                
+                </div>
+                <a href="#" class = "forgetPass" >Forgot Password?</a>
+                </div>
+                
+                <input type="submit" action = "" id = "submitLogin" value="Login" onclick="return checkLogin()">
+                <a href="../Signin/Signin.html" id = "notAcc">Don't have an account?</a>
+            </form>
+        </div>
+        </div>
+</body>
+</html>
